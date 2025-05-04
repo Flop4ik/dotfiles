@@ -17,6 +17,7 @@
 	    equicord
 	    github-desktop
 	    flameshot
+	    mongodb-compass
 	  ];
 	};
 }
