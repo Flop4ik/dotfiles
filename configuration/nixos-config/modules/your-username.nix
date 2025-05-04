@@ -16,6 +16,7 @@
 	    vesktop
 	    equicord
 	    github-desktop
+	    flameshot
 	  ];
 	};
 }

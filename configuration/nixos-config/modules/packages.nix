@@ -6,7 +6,7 @@
 
   imports =
     [ 
-      ./your-user-name.nix
+      ./your-username.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -46,6 +46,16 @@
     catppuccin-sddm
     catppuccin-gtk
     gnome-themes-extra
+
+    #Dependencies
+    gcc
+    uv
+    file
+    xclip
+
+    #Screenshots
+    grim
+    slurp
   ];
 
 
