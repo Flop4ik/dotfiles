@@ -6,7 +6,7 @@
 
   imports =
     [ 
-      ./your-username.nix
+      ./flop4ik.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     # Terminal
     kitty
+    vim
     neovim
     micro
     fastfetch
@@ -26,20 +27,34 @@
     swaylock
     wl-clipboard
     clipman
-    dunst
     pamixer
     wlogout
     hyprpicker
+    swaynotificationcenter
+	dunst
+	rofi-wayland
+	eww
 
     # System tools
     wget
     git
     appimage-run
     python3
+    go
     pavucontrol
+    unzip
+    btop
+    vlc
 
     # Network (zapret is Russian-specific filtering tool)
     zapret
+    iptables
+    nftables
+    gawk
+    blueman
+    gale
+    ffmpeg
+
 
     # Gnome
     gnome-tweaks
@@ -52,6 +67,12 @@
     uv
     file
     xclip
+    # proton-ge
+
+    amnezia-vpn
+    amneziawg-tools 
+
+    
 
     #Screenshots
     grim
