@@ -22,6 +22,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  programs.gamemode.enable = true;
+  programs.nekoray.tunMode.enable = true;
+  
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
@@ -38,77 +41,7 @@
   programs.amnezia-vpn.enable = true;
   # networking.nftables.enable = true;
 
-  services.dnscrypt-proxy2 = {
-    enable = true;
-    settings = {
-      sources.public-resolvers = {
-        urls = ["https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"];
-        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
-      };
-      server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri"];
-    };
-  };
-  networking.nameservers = ["127.0.0.1"];
-
   boot.kernelModules = [ "nfnetlink" "nfnetlink_queue" ];
-  services.zapret = {
-      enable = true;
-      
-  params = [
-    "--dpi-desync=multidisorder"
-    "--dpi-desync-split-pos=midsld"  
-    "--dpi-desync-repeats=3"
-  ];
-  whitelist = [
-    "cloudflare-ech.com"
-    "dis.gd"
-    "discord-attachments-uploads-prd.storage.googleapis.com"
-    "discord.app"
-    "discord.co"
-    "discord.com"
-    "discord.design"
-    "discord.dev"
-    "discord.gift"
-    "discord.gifts"
-    "discord.gg"
-    "discord.media"
-    "discord.new"
-    "discord.store"
-    "discord.status"
-    "discord-activities.com"
-    "discordactivities.com"
-    "discordapp.com"
-    "discordapp.net"
-    "discordcdn.com"
-    "discordmerch.com"
-    "discordpartygames.com"
-    "discordsays.com"
-    "discordsez.com"
-    "stable.dl2.discordapp.net"
-    "ggpht.com"
-    "googlevideo.com"
-    "jnn-pa.googleapis.com"
-    "wide-youtube.l.google.com"
-    "youtube-nocookie.com"
-    "youtube-ui.l.google.com"
-    "youtube.com"
-    "youtubeembeddedplayer.googleapis.com"
-    "youtubekids.com"
-    "youtubei.googleapis.com"
-    "youtu.be"
-    "yt-video-upload.l.google.com"
-    "ytimg.com"
-    "ytimg.l.google.com"
-    "frankerfacez.com"
-    "ffzap.com"
-    "betterttv.net"
-    "7tv.app"
-    "7tv.io"
-    ];
-
-  
-    };
-
 
 #   services.zapret = {
 #     enable = true;
@@ -192,6 +125,13 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus = {
+      engines = with pkgs.ibus-engines; [ libpinyin ];
+    };
+  };
+
   # services.xserver.displayManager.sddm.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";  # Fixes Firefox on Wayland
   # services.xserver.displayManager.sddm.theme = pkgs.catppuccin-sddm;
@@ -252,7 +192,6 @@
   programs.hyprland = {
    enable = true;
   };
-
 
   # This value determines the NixOS release
   system.stateVersion = "24.11";

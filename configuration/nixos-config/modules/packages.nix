@@ -32,7 +32,7 @@
     hyprpicker
     swaynotificationcenter
 	dunst
-	rofi-wayland
+	rofi
 	eww
 
     # System tools
@@ -45,6 +45,10 @@
     unzip
     btop
     vlc
+    # jdk17
+    jdk21
+    # jdk8
+    # jdk11
 
     # Network (zapret is Russian-specific filtering tool)
     zapret
@@ -54,12 +58,17 @@
     blueman
     gale
     ffmpeg
+    gradle
+    xorg.libXxf86vm
+    libpulseaudio
+    libGL
+    alsa-lib
 
 
     # Gnome
     gnome-tweaks
     catppuccin-sddm
-    catppuccin-gtk
+    # catppuccin-gtk
     gnome-themes-extra
 
     #Dependencies
@@ -67,10 +76,23 @@
     uv
     file
     xclip
+    gcc
+    libgcc
+    gnumake
+    cmake
+    extra-cmake-modules
+    libv4l
+    v4l-utils
+    
     # proton-ge
 
     amnezia-vpn
     amneziawg-tools 
+
+
+    ntfs3g
+
+    bun
 
     
 
